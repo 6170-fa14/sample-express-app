@@ -5,12 +5,12 @@ router.get('/', function(req, res) {
   var db = req.db;
   var students = db.get('people');
   students.find({}, function(e, docs){
-  	res.render('userlist', { title: 'Users', 'individuals': docs });
+  	res.render('users/index', { title: 'Users', 'individuals': docs });
   });
 });
 
 router.get('/new', function(req, res) {
-	res.render('newuser', { title: 'Add New User' });
+	res.render('users/new', { title: 'Add New User' });
 });
 
 router.post('/create', function(req, res, next) {
